@@ -13,7 +13,7 @@ const openai = new OpenAI({
 })
 
 const elevenLabsApiKey = process.env.ELEVEN_LABS_API_KEY
-const voiceID = 'gz4Zxp2LBuPptLOEnRpb'
+const voiceID = 'jh2lRLmPveKfFFUJfOpu'
 
 const app = express()
 app.use(express.json())
@@ -78,11 +78,11 @@ app.post('/chat', async (req, res) => {
       res.send({
         messages: [
           {
-            text: `Hi! what's poppin?`,
+            text: `Hi! how's it going?`,
             audio: await audioFileToBase64('audios/intro.wav'),
             lipsync: await readJsonTranscript('audios/intro.json'),
             facialExpression: 'smile',
-            animation: 'happy',
+            animation: 'idle',
           },
         ],
       })
@@ -92,19 +92,12 @@ app.post('/chat', async (req, res) => {
       res.send({
         messages: [
           {
-            text: "Please my dear, don't forget to add your API keys!",
+            text: "Don't forget to add your API keys!",
             audio: await audioFileToBase64('audios/api_0.wav'),
             lipsync: await readJsonTranscript('audios/api_0.json'),
             facialExpression: 'angry',
             animation: 'Angry',
-          },
-          {
-            text: "You don't want to ruin Wawa Sensei with a crazy ChatGPT and ElevenLabs bill, right?",
-            audio: await audioFileToBase64('audios/api_1.wav'),
-            lipsync: await readJsonTranscript('audios/api_1.json'),
-            facialExpression: 'smile',
-            animation: 'Laughing',
-          },
+          }
         ],
       })
       return
